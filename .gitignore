@@ -1,0 +1,6 @@
+.vs/
+.idea/
+out/
+obj/
+bin/
+.dependencies/
