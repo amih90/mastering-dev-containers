@@ -8,6 +8,7 @@
     - [Challenge 3: Upgrade Dev Container runtime](#challenge-3)
     - [Challenge 4: Transform the Project into a Local Generative AI Playground](#challenge-4)
     - [Challenge 5: Optimize the Environment](#challenge-5)
+    - [Challenge 6: Working with Git in Dev Containers](#challenge-6)
 - [Additional resources](#additional-resources)
 - [Appendix](#appendix)
     - [Appendix A - Mounts](#appendix-a)
@@ -445,6 +446,37 @@ Lihi has begun using the full-featured local environment you set up, but she is 
 
 By optimizing the dev container, you have significantly improved Lihi's user experience. The reduced startup time allows her to start working almost immediately, without the daily wait for dependencies and models to restore. This enhancement ensures that Lihi can focus more on her innovative work with Generative AI, leading to increased productivity and a smoother development process.
 
+### Challenge 6: Working with Git in Dev Containers <a name="challenge-6"></a>
+
+Lihi encountered an issue when attempting to commit her changes inside the dev container. When she ran Git operations, an error indicated that the *.git* folder could not be found. This occurred because the source code was mounted to a path that does not include the *.git* directory, which is essential for source control operations.
+
+![devcontainer rebuild](../assets/vscode-git-status.png)
+
+The default mount point for the source code you configured via **workspaceMount** property in previous challenges was set to a path without a *.git* folder. To enable Git operations to work correctly inside the dev container, the root of the repository should be mounted.
+
+
+#### Guidance
+
+1. Reconfigure the **workspaceMount** property to mount the root of the repository.
+
+    ```bash
+    source=${localWorkspaceFolder},target=/workspace,type=bind
+    ```
+1. Adjust the **workspaceFolder** to point to the appropriate directory inside the container, allowing Lihi to focus on her specific projects without being overwhelmed by the entire repository.
+
+
+1. **Update Hooks**
+Git introduced the "safe directory" concept to prevent potential security risks when working with repositories that are owned by a different user than the one running the Git commands. When you run Git commands inside a development container or a Docker container, the workspace directory (e.g., /workspace) may not be recognized as a "safe" directory by Git, especially if it's shared or mounted between the host and the container. This can result in errors when attempting to execute Git commands.
+
+    Update the `./scripts/post-start-command.sh` script to explicitly trust the */workspace* directory
+
+    ```bash
+    git config --global --add safe.directory /workspace
+    ```
+
+1. **Apply Changes**: Open the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) by pressing `Ctrl` + `Shift` + `P` and select **Dev Containers: Rebuild and Reopen in Container** to apply your changes.
+
+1. **Validate Git**: Ensure that Git operations are now functioning properly within the dev container.
 
 <p align="center">
 <br />
