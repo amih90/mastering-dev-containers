@@ -76,11 +76,18 @@ Assist Lihi in setting up a Python-based local environment. Lihi requires a robu
     1. Using the Remote Development extension shortcut on the bottom left corner of the VS Code window.
         1. Press the **><** icon.
         1. Select **Reopen in Container** Container.
-        1. Using the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) by running `Ctrl` + `Shift` + `P` and selecting **Dev Containers: Reopen in Container**.
+        1. Using the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) with `Ctrl` + `Shift` + `P`, and selecting **Dev Containers: Reopen in Container**.
 
 1. After the workspace will be opened, all the capabilities and extensions you configured are available in your devcontainer.
 
     > You can validate it by opening the terminal and running `python --version`, command to view the version of Python installed in the environment.
+
+1. **Reopen Folder Locally**: Exit the dev container workspace using one of the following approaches:
+
+    1. Using the Remote Development extension shortcut on the bottom left corner of the VS Code window.
+        1. Press the **><** icon.
+        1. Select **Reopen Folder Locally**.
+    1. Using the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) with `Ctrl` + `Shift` + `P`, and selecting **Dev Containers: Reopen Folder Locally**.
 
 The dev container provided Lihi with a consistent and isolated environment with just one click, ensuring that her development setup is reproducible and portable across different machines.
 
@@ -91,7 +98,7 @@ To create a user-friendly and fully-featured development environment for her cod
 
 #### Guidance
 
-1. Navigate to the **devcontainer.json** file and set up the following configurations:
+1. Navigate to the **devcontainer.json** file via File Explorer `Ctrl` + `shift` + `E` or using the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) with `Ctrl` + `Shift` + `P`, and selecting **Dev Containers: Open Container Configuration File**, and set up the following configurations:
     1. Setting the user in a dev container to a non-root user is recommended for several reasons:
         * **Security**: Running processes as a non-root user reduces the risk of accidental or malicious changes that could affect the entire system. This is a fundamental security practice to prevent privilege escalation and minimize potential damage.
 
@@ -188,10 +195,10 @@ To create a user-friendly and fully-featured development environment for her cod
     1. Using the Remote Development extension shortcut on the bottom left corner of the VS Code window.
         1. Press the **><** icon.
         1. Select **Rebuild Container**.
-    1. Using the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) by running `Ctrl` + `Shift` + `P` and selecting **Dev Containers: Rebuild Container**.
+    1. Using the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) with `Ctrl` + `Shift` + `P`, and selecting **Dev Containers: Rebuild Container**.
 
 1. **Validate**: After the container will be opened, VS Code will be mounted only with the webapp folder and the webapp requirements will be installed. Validate the web application has all the necessary dependencies installed by running and testing the endpoint:
-    1.  Open a new terminal `Ctrl` + `Shift` + `5` and run the web server:
+    1.  Open a new terminal with `Ctrl` + `Shift` + ``` ` ``` and run the web server:
 
         ```bash
         uvicorn main:app --host 0.0.0.0 --port 8000 --reload
@@ -201,7 +208,7 @@ To create a user-friendly and fully-featured development environment for her cod
 
         ![Uvicorn web server](../assets/python-uvicorn.png)
 
-    1. Open a new terminal via `Ctrl` + `Shift` + `5` and test the web application API:
+    1. Open a new terminal with `Ctrl` + `Shift` + `5` and test the web application API:
 
         ```bash
         curl http://localhost:8000/
@@ -218,7 +225,7 @@ With the announcement of the deprecation of Python 3.11, the security champion h
 
 #### Guidance
 
-1. **Open Container Configuration File**: Using the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) by running `Ctrl` + `Shift` + `P` and selecting **Dev Containers: Open Container Configuration File**.
+1. **Open Container Configuration File**: Using the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) with `Ctrl` + `Shift` + `P`, and selecting **Dev Containers: Open Container Configuration File**.
 1. **Update base image**: Modify the container configuration file and update the **image** property with a corresponding base image that supports Python 3.12:
 
     ```json
@@ -232,7 +239,7 @@ With the announcement of the deprecation of Python 3.11, the security champion h
     1. Using the Remote Development extension shortcut on the bottom left corner of the VS Code window.
         1. Press the **><** icon.
         1. Select **Rebuild Container**.
-    1. Using the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) by running `Ctrl` + `Shift` + `P` and selecting **Dev Containers: Rebuild Container**.
+    1. Using the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) with `Ctrl` + `Shift` + `P`, and selecting **Dev Containers: Rebuild Container**.
 
 1. **Validate dependencies**: Validate the Python version by running the following command in the terminal:
 
@@ -247,7 +254,7 @@ With the announcement of the deprecation of Python 3.11, the security champion h
     1. Using the Remote Development extension shortcut on the bottom left corner of the VS Code window.
         1. Press the **><** icon.
         1. Select **Reopen Folder Locally**.
-    1. Using the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) by running `Ctrl` + `Shift` + `P` and selecting **Dev Containers: Reopen Folder Locally**.
+    1. Using the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) with `Ctrl` + `Shift` + `P`, and selecting **Dev Containers: Reopen Folder Locally**.
 
 
 ### Challenge 4: Transform the Project into a Local Generative AI Playground <a name="challenge-4"></a>
@@ -331,7 +338,7 @@ Lihi needs a cost-effective, local environment to test her Generative AI busines
 
     ![Ollama - Chat Completion](../assets/ollama-chat-completion.png)
 
-1. **Open Container Configuration File**: Using the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) by running `Ctrl` + `Shift` + `P` and selecting **Dev Containers: Open Container Configuration File**.
+1. **Open Container Configuration File**: Using the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) with `Ctrl` + `Shift` + `P`, and selecting **Dev Containers: Open Container Configuration File**.
 
 1. **Reconfigure Hooks**: Reconfigure **postStartCommand** property to pull the required LLM models.
 
@@ -352,7 +359,7 @@ Lihi has begun using the full-featured local environment you set up, but she is 
 
 #### Guidance
 
-1. **Open Container Configuration File**: Using the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) by running `Ctrl` + `Shift` + `P` and selecting **Dev Containers: Open Container Configuration File**.
+1. **Open Container Configuration File**: Using the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) with `Ctrl` + `Shift` + `P`, and selecting **Dev Containers: Open Container Configuration File**.
 
 1. **Automatically Upgrade Dependencies**:  It is a best practice to regularly update packages and dependencies to access the latest features, bug fixes, and security patches. For instance, in Lihi's terminal example above, there is a notification about a new release of *pip* being available.
 
