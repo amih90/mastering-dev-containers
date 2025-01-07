@@ -1,0 +1,6 @@
+@MasteringDevContainer_HostAddress = http://localhost:5039
+
+GET {{MasteringDevContainer_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

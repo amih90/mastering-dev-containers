@@ -1,0 +1,19 @@
+services:
+  cpp-debian-bullseye:
+    image: mcr.microsoft.com/vscode/devcontainers/cpp:0-debian-11
+    profiles: [base-image]
+  dotnet-8-bookworm:
+    image: mcr.microsoft.com/devcontainers/dotnet:1-8.0-bookworm
+    profiles: [base-image]
+  python-3.11-bullseye:
+    image: mcr.microsoft.com/devcontainers/python:1-3.11-bullseye
+    profiles: [base-image]
+  python-3.12-bullseye:
+    image: mcr.microsoft.com/devcontainers/python:1-3.12-bullseye
+    profiles: [base-image]
+  ubuntu-20.04:
+    image: mcr.microsoft.com/vscode/devcontainers/base:0-ubuntu-20.04
+    profiles: [base-image]
+  typescript-node-22-bookworm:
+    image: mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm
+    profiles: [base-image]
