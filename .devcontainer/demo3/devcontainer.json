@@ -1,5 +1,5 @@
 {
-	"name": "Demo 2",
+	"name": "Demo 3",
 	"image": "mcr.microsoft.com/devcontainers/dotnet:1-9.0-bookworm",
 	"features": {
 		"ghcr.io/devcontainers/features/azure-cli:1": {},
