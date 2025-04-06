@@ -1,40 +1,59 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/dotnet
 {
 	"name": "Demo 2",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/dotnet:1-8.0-bookworm",
-	// Features to add to the dev container. More info: https://containers.dev/features.
+	"image": "mcr.microsoft.com/devcontainers/dotnet:1-9.0-bookworm",
 	"features": {
-		"ghcr.io/devcontainers/features/azure-cli:1": {
-			"version": "latest"
+		"ghcr.io/devcontainers/features/azure-cli:1": {},
+		"ghcr.io/jlaundry/devcontainer-features/azure-functions-core-tools:1": {},
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {
+			"moby": true,
+			"azureDnsAutoDetection": true,
+			"installDockerBuildx": true,
+			"installDockerComposeSwitch": true,
+			"version": "latest",
+			"dockerDashComposeVersion": "latest"
+		},
+        "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
+			"version": "latest",
+			"helm": "latest",
+			"minikube": "latest"
 		}
+		
 	},
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [5147]
-	// "portsAttributes": {
-	//		"5001": {
-	//			"protocol": "https"
-	//		}
-	// }
-	
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "curl -fsSL https://aka.ms/install-artifacts-credprovider.sh | bash",
+	"postCreateCommand": "curl -fsSL https://aka.ms/install-artifacts-credprovider.sh | bash",    
 
 	// Use 'postStartCommand' to run commands after the container is successfully started.
-	// "postStartCommand": "dotnet restore",
+	"postStartCommand": "dotnet restore --interactive",  
 
-	// Configure tool-specific properties.
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"humao.rest-client",
-				"ms-dotnettools.csdevkit"
-			]
-		}
-	},
+    "customizations": {
+        "vscode": {
+            "extensions": [
+				"asdine.cue",
+                "azurite.azurite",
+                "bencoleman.armview",
+                "durablefunctionsmonitor.durablefunctionsmonitor",
+                "humao.rest-client",
+                "jallen7usa.vscode-cue-fmt",
+                "mhutchie.git-graph",
+                "ms-azuretools.azure-dev",
+                "ms-azuretools.vscode-azurefunctions",
+                "ms-azuretools.vscode-bicep",
+                "ms-azuretools.vscode-docker",
+                "ms-dotnettools.csdevkit",
+                "ms-dotnettools.csharp",
+                "ms-dotnettools.vscode-dotnet-runtime",
+                "ms-vscode.vscode-node-azure-pack"
+            ]
+        }
+    },
+    "forwardPorts": [
+        3000,
+        3100
+    ],
 
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	"remoteUser": "root"
+    "remoteUser": "vscode",
+    "hostRequirements": {
+        "memory": "8gb"
+    }
 }

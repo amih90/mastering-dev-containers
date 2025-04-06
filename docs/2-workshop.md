@@ -456,7 +456,7 @@ Lihi has begun using the full-featured local environment you set up, but she is 
 
             ```json
             "mounts": [
-                "source=${localWorkspaceFolder}/samples/python/.dependencies,target=/home/vscode/.local/lib/python3.12,type=bind,consistency=cached
+                "source=${localWorkspaceFolder}/samples/python/.dependencies,target=/home/vscode/.local/lib/python3.12,type=bind,consistency=cached"
             ]
             ```
 
